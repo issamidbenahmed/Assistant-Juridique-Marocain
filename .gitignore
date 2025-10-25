@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Environment Variables
+backend/.env
+.env
+
+# Database
+/chroma_db
+chroma_db/
+backend/chroma_db/
+*.db
+*.sqlite
+*.sqlite3
+
+# Tests
+backend/tests/
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node.js / Angular
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Angular
+frontend/dist/
+frontend/.angular/
+frontend/.angular/cache/
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Kiro
+.kiro/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp

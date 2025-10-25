@@ -1,0 +1,40 @@
+[
+  {
+    "question": "sanction ?",
+    "response": "Les sanctions énoncées dans la Loi n° 17-95 sont diverses et s'appliquent à différents cas :\n\n- Selon l'article 343, en cas de violation des règles de publicité, une personne ayant intérêt peut mettre la société en demeure d'y procéder dans un délai de trente jours.\n\n- L'article 398 prévoit une peine pénale pour les membres des organes d'administration ou de gestion qui auraient sciemment donné ou cédé : \n\"Seront punis d'un emprisonnement de un mois à un an et d'une amende de 12 000 à 120 000 dirhams ou de l'une de ces deux peines seulement.\"\n\nCes articles énoncent les principaux types de sanctions mentionnés dans la Loi n° 17-95.",
+    "sources_count": 3,
+    "confidence": 0.3,
+    "metadata": {
+      "question": "sanction ?",
+      "sources_found": 3,
+      "confidence": 0.3,
+      "validated": false,
+      "validation_score": null,
+      "timestamp": "2025-10-25T21:12:36.541970",
+      "processing_time": 355.35996556282043,
+      "model_used": "qwen2.5:7b",
+      "total_documents_searched": 3
+    },
+    "id": "a3a30bd9-95bf-4599-a195-4ac9ebeb0189",
+    "timestamp": "2025-10-25T21:12:36.872059"
+  },
+  {
+    "question": "qu'est ce qu'une société anonyme ?",
+    "response": "Une société anonyme est une entité juridique commerciale, selon l'article Premier de la Loi n° 17-95 :\n\n\"La société anonyme est une société commerciale à raison de sa forme et quel que soit son objet.\"\n\nSon capital est composé d'actions représentatives des apports en numéraire ou en nature, excluant tout apport en industrie (encore selon l'article Premier de la Loi n° 17-95).\n\nDe plus, pour fonder une société anonyme, certaines conditions s'imposent, notamment que les personnes concernées ne soient pas déchues du droit d'administrer ou de gérer une société et qu'elles n'aient pas été condamnées pour des infractions spécifiques dans un délai de cinq ans (article 38 complété par l'article 1er de la loi n° 20-05).\n\nEnfin, une société anonyme peut se transformer en une autre forme si elle a au moins un an d'existence et si les états de synthèse de l'exercice ont été établis et approuvés par les actionnaires (article 216).",
+    "sources_count": 3,
+    "confidence": 0.7,
+    "metadata": {
+      "question": "qu'est ce qu'une société anonyme ?",
+      "sources_found": 3,
+      "confidence": 0.7,
+      "validated": false,
+      "validation_score": null,
+      "timestamp": "2025-10-25T21:04:04.995588",
+      "processing_time": 158.99032020568848,
+      "model_used": "qwen2.5:7b",
+      "total_documents_searched": 3
+    },
+    "id": "ad665532-9b4a-4298-b32e-feff0e0ded0f",
+    "timestamp": "2025-10-25T21:04:05.082316"
+  }
+]
