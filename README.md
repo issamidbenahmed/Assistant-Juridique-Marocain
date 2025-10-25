@@ -34,16 +34,16 @@ Un assistant juridique intelligent basé sur l'IA pour la législation marocaine
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │  Frontend       │    │  Backend API    │    │  RAG Pipeline   │
 │  (Angular)      │◄──►│  (FastAPI)      │◄──►│                 │
-└─────────────────┘    └─────────────────┘    │  ┌─────────────┐ │
-                                              │  │ Embedding   │ │
-┌─────────────────┐    ┌─────────────────┐    │  │ Service     │ │
-│  ChromaDB       │    │  Ollama         │    │  └─────────────┘ │
-│  (Vector DB)    │◄──►│  (LLM + Embed)  │◄──►│  ┌─────────────┐ │
-└─────────────────┘    └─────────────────┘    │  │ LLM Service │ │
-                                              │  └─────────────┘ │
-┌─────────────────┐    ┌─────────────────┐    │  ┌─────────────┐ │
-│  History        │    │  Gemini API     │    │  │ Data Service│ │
-│  (JSON)         │    │  (Optional)     │◄──►│  └─────────────┘ │
+└─────────────────┘    └─────────────────┘    │  ┌─────────────┐│
+                                              │  │ Embedding   ││
+┌─────────────────┐    ┌─────────────────┐    │  │ Service     ││
+│  ChromaDB       │    │  Ollama         │    │  └─────────────┘│
+│  (Vector DB)    │◄──►│  (LLM + Embed)  │◄──►│  ┌─────────────┐│
+└─────────────────┘    └─────────────────┘    │  │ LLM Service ││
+                                              │  └─────────────┘│
+┌─────────────────┐    ┌─────────────────┐    │  ┌─────────────┐│
+│  History        │    │  Gemini API     │    │  │ Data Service││
+│  (JSON)         │    │  (Optional)     │◄──►│  └─────────────┘│
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
@@ -52,22 +52,8 @@ Un assistant juridique intelligent basé sur l'IA pour la législation marocaine
 ### Prérequis
 - **Docker** et **Docker Compose** (version 3.8+)
 - **Git**
-- **4GB RAM minimum** (8GB recommandé)
+- **8GB RAM minimum** (16GB recommandé)
 - **10GB d'espace disque** pour les modèles IA
-
-### Installation en Une Commande
-
-```bash
-# Cloner le repository
-git clone https://github.com/votre-username/assistant-juridique-marocain.git
-cd assistant-juridique-marocain
-
-# Déployer (développement)
-./deploy.sh development
-
-# Ou pour la production
-./deploy.sh production
-```
 
 ### Installation Manuelle
 
@@ -141,7 +127,6 @@ assistant-juridique-marocain/
 ├── 📁 monitoring/             # Configuration monitoring
 ├── 📄 docker-compose.yml      # Orchestration développement
 ├── 📄 docker-compose.prod.yml # Orchestration production
-└── 📄 deploy.sh              # Script de déploiement
 ```
 
 ## 📚 Utilisation
@@ -220,40 +205,9 @@ docker-compose exec ollama ollama pull all-minilm:latest
 # Puis modifier EMBEDDING_MODEL=all-minilm:latest dans .env
 ```
 
-## 🧪 Tests
+### Tests unitaires 
 
-### Tests Backend
-
-```bash
-# Tests unitaires
-cd backend
-python -m pytest tests/ -v
-
-# Tests d'intégration
-python -m pytest tests/test_integration_* -v
-
-# Couverture de code
-python -m pytest --cov=app tests/
-```
-
-### Tests Frontend
-
-```bash
-# Tests unitaires
-cd frontend
-npm test
-
-# Tests e2e
-npm run e2e
-```
-
-### Test Pipeline RAG
-
-```bash
-# Test complet du pipeline
-cd backend
-python test_rag_pipeline.py
-```
+déja testés et vérifiés
 
 ## 📊 Monitoring et Logs
 
@@ -281,35 +235,11 @@ curl http://localhost:8000/api/v1/collection/stats
 curl http://localhost:8000/info
 ```
 
-### Monitoring Production
-
-En production, accédez à:
-- **Prometheus**: http://localhost:9090 pour les métriques
-- **Grafana**: http://localhost:3000 (admin/admin123) pour les dashboards
-
-## 🔒 Sécurité
-
 ### Développement
 - CORS configuré pour localhost
 - Validation des entrées avec Pydantic
 - Logs détaillés pour le débogage
 
-### Production
-- HTTPS avec certificats SSL
-- Headers de sécurité (HSTS, CSP, etc.)
-- Rate limiting sur l'API
-- Isolation des conteneurs Docker
-
-### Certificats SSL
-
-```bash
-# Générer des certificats auto-signés pour le développement
-mkdir -p nginx/ssl
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout nginx/ssl/key.pem \
-  -out nginx/ssl/cert.pem \
-  -subj "/C=MA/ST=Casablanca/L=Casablanca/O=Assistant Juridique/CN=localhost"
-```
 
 ## 🚨 Dépannage
 
@@ -344,16 +274,6 @@ docker-compose logs frontend
 
 # Reconstruire l'image
 docker-compose build --no-cache frontend
-```
-
-#### Modèles IA manquants
-```bash
-# Lister les modèles installés
-docker-compose exec ollama ollama list
-
-# Installer les modèles requis
-docker-compose exec ollama ollama pull llama2:latest
-docker-compose exec ollama ollama pull nomic-embed-text:latest
 ```
 
 ### Commandes de Diagnostic
@@ -417,24 +337,5 @@ Puis créez une Pull Request sur GitHub.
 - **Commits**: Utilisez les [Conventional Commits](https://conventionalcommits.org/)
 - **Tests**: Maintenez une couverture de code > 80%
 
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-## 🙏 Remerciements
-
-- **Ollama** pour l'infrastructure IA locale
-- **ChromaDB** pour la base de données vectorielle
-- **FastAPI** pour le framework web moderne
-- **Angular** pour l'interface utilisateur
-- **La communauté open source** pour les outils et bibliothèques
-
-## 📞 Support
-
-- **Issues GitHub**: Pour les bugs et demandes de fonctionnalités
-- **Discussions**: Pour les questions générales
-- **Wiki**: Pour la documentation détaillée
-
----
 
 **Assistant Juridique Marocain** - Démocratiser l'accès à l'information juridique grâce à l'IA 🚀
