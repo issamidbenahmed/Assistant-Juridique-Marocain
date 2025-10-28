@@ -59,7 +59,7 @@ Un assistant juridique intelligent basé sur l'IA pour la législation marocaine
 
 1. **Cloner le repository**
 ```bash
-git clone https://github.com/votre-username/assistant-juridique-marocain.git
+git https://github.com/issamidbenahmed/Assistant-Juridique-Marocain.git
 cd assistant-juridique-marocain
 ```
 
